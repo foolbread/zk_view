@@ -1,8 +1,8 @@
 package main
 
 import (
-	"zk_view/models"
-	_ "zk_view/routers"
+	"github.com/foolbread/zk_view/models"
+	_ "github.com/foolbread/zk_view/routers"
 
 	"github.com/astaxie/beego"
 )

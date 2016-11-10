@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"zk_view/controllers"
+	"github.com/foolbread/zk_view/controllers"
 
 	"path"
 

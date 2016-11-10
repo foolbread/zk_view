@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 
-	"zk_view/models"
+	"github.com/foolbread/zk_view/models"
 
 	"path"
 
@@ -103,7 +103,7 @@ func (c *MainController) Home() {
 func (c *MainController) Login() {
 	user := c.GetString("user")
 	pwd := c.GetString("pwd")
-	if user != "root" || pwd != "root" {
+	if !models.GetUserInstance().CheckUser(user, pwd) {
 		c.Ctx.WriteString("user or password is error!")
 		return
 	}
