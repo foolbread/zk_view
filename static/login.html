@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="dist/css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="dist/css/flat-ui.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/baseball.png">
+
+    <!--[if lt IE 9]>
+    <script src="dist/js/vendor/html5shiv.js"></script>
+    <script src="dist/js/vendor/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="dist/js/vendor/jquery.min.js"></script>
+
+    <script src="dist/js/vendor/video.js"></script>
+    <script src="dist/js/flat-ui.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <form method="post" action="/login">
+                <div class="login-screen" style="background-color: inherit; min-height: 400px;">
+                    <div class="login-form" style="background-color: #1bc5a3;">
+                        <div class="form-group">
+                            <input type="text" name="user" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" />
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" name="pwd" class="form-control login-field" value="" placeholder="Password" id="login-pass" />
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        </div>
+
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #2a6496;" value="Log in"/>
+                    <!--a class="login-link" href="#">Lost your password?</a-->
+                    </div>
+                </div>
+        </form>
+    </div>
+
+
+    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+</body>
+</html>
