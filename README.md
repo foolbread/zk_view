@@ -5,4 +5,4 @@ zookeeper dashboard
 
 view sample
 
-![doc/view.png]()
+![](doc/view.png)
