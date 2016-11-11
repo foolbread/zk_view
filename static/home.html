@@ -94,14 +94,14 @@
                             <td>
                                 <a href="#" data-toggle="modal" class="href-select" data-target="#updatePathModal" itemprop="{{.CurPathVal}}">[.]</a>
                             </td>
-                            <td>{{.CurPathVal}}</td>
+                            <td><pre>{{.CurPathVal}}</pre></td>
                         </tr>
                         {{range .SubZKPathVals}}
                         <tr>
                             <td>
                                 <a href="#" data-toggle="modal" class="href-select" data-target="#updatePathModal" itemprop="{{.Val}}">{{.Path}}</a>
                             </td>
-                            <td>{{.Val}}</td>
+                            <td><pre>{{.Val}}</pre></td>
                         </tr>
                         {{end}}
                     </tbody>
