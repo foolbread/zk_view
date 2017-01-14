@@ -24,9 +24,9 @@
 
 <body>
     <div class="container">
-        <form method="post" action="/login">
+        <form method="post" action="/login" id="loginform">
                 <div class="login-screen" style="background-color: inherit; min-height: 400px;">
-                    <div class="login-form" style="background-color: #1bc5a3;">
+                    <div class="login-form" style="background-color: #d21623;">
                         <div class="form-group">
                             <input type="text" name="user" class="form-control login-field" value="" placeholder="Enter your name" id="login-name" />
                             <label class="login-field-icon fui-user" for="login-name"></label>
@@ -37,16 +37,24 @@
                             <label class="login-field-icon fui-lock" for="login-pass"></label>
                         </div>
 
-                        <input class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #2a6496;" value="Log in"/>
-                    <!--a class="login-link" href="#">Lost your password?</a-->
+                        <input class="btn btn-primary btn-lg btn-block" type="submit" style="background-color: #46b8da;" value="Log in"/>
+                    <!--<a class="login-link" href="#">Lost your password?</a>-->
+                        <br/>
+                        {{.message}}
                     </div>
                 </div>
         </form>
     </div>
 
 
-    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
 
+    <!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <!--<script type="text/javascript">-->
+        <!--$(document).ready(function(){-->
+
+            <!--$("#loginform").submit();-->
+        <!--});-->
+    <!--</script>-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 </body>
 </html>
