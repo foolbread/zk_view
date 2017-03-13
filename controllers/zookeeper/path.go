@@ -1,24 +1,25 @@
 package zookeeper
 
 import (
-	"path"
 	"fmt"
+	"path"
 
-	"github.com/foolbread/zk_view/controllers"
+	"zk_view/controllers"
 
 	"github.com/foolbread/fbcommon/golog"
 
-	. "github.com/foolbread/zk_view/models/zookeeper"
+	. "zk_view/models/zookeeper"
 )
 
 type ZooKeeperPathController struct {
 	controllers.BaseController
 }
 
-func (z *ZooKeeperPathController)Post(){
+func (z *ZooKeeperPathController) Post() {
 	action := z.GetString("action")
 	curPath := z.GetString("currentPath")
 
+	z.BaseController
 	switch action {
 	case "add":
 		ap := z.GetString("addPath")

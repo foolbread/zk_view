@@ -1,15 +1,17 @@
 package main
 
 import (
-	_ "github.com/foolbread/zk_view/models"
-	_ "github.com/foolbread/zk_view/routers"
-	_ "github.com/foolbread/zk_view/initial"
+	"zk_view/models"
+	_ "zk_view/routers"
+	_ "zk_view/initial"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
 )
 
 func main() {
+	models.InitModels()
+
 	beego.InsertFilter("/*",beego.BeforeRouter, FilterUser)
 
 	beego.Run()

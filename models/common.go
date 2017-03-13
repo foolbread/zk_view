@@ -1,12 +1,14 @@
 package models
 
 import (
-	. "github.com/foolbread/zk_view/models/user"
-	. "github.com/foolbread/zk_view/models/zookeeper"
+	. "zk_view/models/user"
+	. "zk_view/models/zookeeper"
+	. "zk_view/models/watch"
 )
 
-func init() {
+func InitModels() {
 	InitUser()
 	InitZookeeper()
+	InitWatch()
 }
 

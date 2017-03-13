@@ -1,8 +1,9 @@
 package routers
 
 import (
-	"github.com/foolbread/zk_view/controllers/user"
-	"github.com/foolbread/zk_view/controllers/zookeeper"
+	"zk_view/controllers/user"
+	"zk_view/controllers/zookeeper"
+	"zk_view/controllers/watch"
 
 	"github.com/astaxie/beego"
 )
@@ -12,4 +13,5 @@ func init() {
 	beego.Router("/logout", &user.LogoutUserController{})
 	beego.Router("/home", &zookeeper.ZooKeeperController{})
 	beego.Router("/path", &zookeeper.ZooKeeperPathController{})
+	beego.Router("/check", &watch.WatchCheckController{})
 }

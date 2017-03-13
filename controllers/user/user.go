@@ -1,9 +1,9 @@
 package user
 
 import (
-	"github.com/foolbread/zk_view/controllers"
+	"zk_view/controllers"
 
-	. "github.com/foolbread/zk_view/models/user"
+	. "zk_view/models/user"
 )
 
 //登录
@@ -33,6 +33,7 @@ func (u *LoginUserController) Post(){
 		u.TplName = "login.html"
 	}
 }
+
 
 //退出
 type LogoutUserController struct {

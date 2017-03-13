@@ -3,8 +3,8 @@ package zookeeper
 import (
 	"github.com/foolbread/fbcommon/golog"
 
-	"github.com/foolbread/zk_view/controllers"
-	. "github.com/foolbread/zk_view/models/zookeeper"
+	"zk_view/controllers"
+	. "zk_view/models/zookeeper"
 
 	"path"
 )
