@@ -6,7 +6,7 @@ import (
 	"path"
 	"sort"
 
-	"zk_view/utils"
+	"github.com/foolbread/zk_view/utils"
 	"github.com/foolbread/fbcommon/golog"
 )
 

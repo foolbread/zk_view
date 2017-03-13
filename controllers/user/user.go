@@ -1,9 +1,9 @@
 package user
 
 import (
-	"zk_view/controllers"
+	"github.com/foolbread/zk_view/controllers"
 
-	. "zk_view/models/user"
+	. "github.com/foolbread/zk_view/models/user"
 )
 
 //登录

@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"path"
 
-	"zk_view/controllers"
+	"github.com/foolbread/zk_view/controllers"
 
 	"github.com/foolbread/fbcommon/golog"
 
-	. "zk_view/models/zookeeper"
+	. "github.com/foolbread/zk_view/models/zookeeper"
 )
 
 type ZooKeeperPathController struct {
@@ -19,7 +19,6 @@ func (z *ZooKeeperPathController) Post() {
 	action := z.GetString("action")
 	curPath := z.GetString("currentPath")
 
-	z.BaseController
 	switch action {
 	case "add":
 		ap := z.GetString("addPath")
