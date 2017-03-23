@@ -4,6 +4,8 @@ import (
 	"github.com/foolbread/zk_view/controllers"
 
 	. "github.com/foolbread/zk_view/models/user"
+
+	"fmt"
 )
 
 //登录
@@ -14,7 +16,9 @@ type LoginUserController struct {
 func (u *LoginUserController) Get(){
 	check := u.BaseController.IsLogin
 	if check {
-		u.Redirect("/home?zkPath=/", 302)
+		usr := u.GetSession("userLogin")
+		pa := fmt.Sprintf("/home?zkPath=%s", GetUserManager().GetUsrBasePath(usr.(string)))
+		u.Redirect(pa, 302)
 	}else{
 		u.TplName = "login.html"
 	}
@@ -27,7 +31,8 @@ func (u *LoginUserController) Post(){
 	ok := GetUserManager().CheckLogin(username, passwd)
 	if ok{
 		u.SetSession("userLogin", username)
-		u.Redirect("/home?zkPath=/", 302)
+		pa := fmt.Sprintf("/home?zkPath=%s",GetUserManager().GetUsrBasePath(username))
+		u.Redirect(pa, 302)
 	}else{
 		u.Data["message"] = "login failed!"
 		u.TplName = "login.html"

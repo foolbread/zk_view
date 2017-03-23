@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"encoding/json"
 	"github.com/foolbread/fbcommon/golog"
+	"strings"
 )
 
 func InitUser(){
@@ -23,10 +24,12 @@ func InitUser(){
 type webUser struct {
 	User string `json:"user"`
 	Pwd  string `json:"pwd"`
+	Path string `json:"path"`
 }
 
 type webUserManager struct {
 	Users []*webUser `json:"users"`
+	UserMap map[string]*webUser
 }
 
 func GetUserManager()*webUserManager{
@@ -36,11 +39,32 @@ func GetUserManager()*webUserManager{
 var g_user *webUserManager
 
 func (u *webUserManager)CheckLogin(usr string, pwd string)bool{
-	for _, v := range u.Users {
-		if v.User == usr {
-			return v.Pwd == pwd
-		}
+	info := u.getUserInfo(usr)
+	if info == nil{
+		return false
 	}
 
-	return false
+	return wu.Pwd == pwd
+}
+
+func (u *webUserManager)CheckPath(usr string, pa string)bool{
+	info := u.getUserInfo(usr)
+	if info == nil{
+		return false
+	}
+
+	return strings.Contains(pa,wu.Path)
+}
+
+func (u *webUserManager)GetUsrBasePath(usr string)string{
+	info := u.getUserInfo(usr)
+	if info == nil{
+		return ""
+	}
+
+	return info.Path
+}
+
+func (u *webUserManager)getUserInfo(usr string)*webUser{
+	return u.UserMap[usr]
 }

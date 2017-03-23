@@ -9,6 +9,7 @@ import (
 	"github.com/foolbread/fbcommon/golog"
 
 	. "github.com/foolbread/zk_view/models/zookeeper"
+	. "github.com/foolbread/zk_view/models/user"
 )
 
 type ZooKeeperPathController struct {
@@ -18,6 +19,11 @@ type ZooKeeperPathController struct {
 func (z *ZooKeeperPathController) Post() {
 	action := z.GetString("action")
 	curPath := z.GetString("currentPath")
+
+	usr := z.GetSession("uesrLogin")
+	if !GetUserManager().CheckPath(usr.(string), curPath){
+		z.Redirect("／login",302)
+	}
 
 	switch action {
 	case "add":
