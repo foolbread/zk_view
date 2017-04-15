@@ -9,6 +9,7 @@ import (
 
 func InitUser(){
 	g_user = new(webUserManager)
+	g_user.UserMap = make(map[string]*webUser)
 
 	str := beego.AppConfig.String("auth")
 	err := json.Unmarshal([]byte(str), g_user)
@@ -17,7 +18,8 @@ func InitUser(){
 	}
 
 	for _, v := range g_user.Users {
-		golog.Info("user:", v.User, "pwd:", v.Pwd)
+		golog.Info("user:", v.User, "pwd:", v.Pwd,"path:",v.Path)
+		g_user.UserMap[v.User] = &webUser{v.User,v.Pwd,v.Path}
 	}
 }
 
@@ -44,7 +46,7 @@ func (u *webUserManager)CheckLogin(usr string, pwd string)bool{
 		return false
 	}
 
-	return wu.Pwd == pwd
+	return info.Pwd == pwd
 }
 
 func (u *webUserManager)CheckPath(usr string, pa string)bool{
@@ -53,7 +55,7 @@ func (u *webUserManager)CheckPath(usr string, pa string)bool{
 		return false
 	}
 
-	return strings.Contains(pa,wu.Path)
+	return strings.Contains(pa,info.Path)
 }
 
 func (u *webUserManager)GetUsrBasePath(usr string)string{

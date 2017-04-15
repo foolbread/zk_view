@@ -5,8 +5,10 @@ import (
 
 	"github.com/foolbread/zk_view/controllers"
 	. "github.com/foolbread/zk_view/models/zookeeper"
+	. "github.com/foolbread/zk_view/models/user"
 
 	"path"
+	"fmt"
 )
 
 type ZooKeeperController struct {
@@ -17,6 +19,12 @@ func (z *ZooKeeperController)Get(){
 	golog.Info("zkpath:", z.Ctx.Request.URL.Query().Get("zkPath"))
 
 	pa := z.Ctx.Request.URL.Query().Get("zkPath")
+	usr := z.BaseController.GetSession("userLogin")
+	if !GetUserManager().CheckPath(usr.(string), pa){
+		pa := fmt.Sprintf("/home?zkPath=%s",GetUserManager().GetUsrBasePath(usr.(string)))
+		z.Redirect(pa, 302)
+	}
+
 	subpaths, zkPairs, err := GetPathInfo(pa)
 	if err != nil {
 		golog.Error(err)
