@@ -21,7 +21,7 @@ func (z *ZooKeeperPathController) Post() {
 	curPath := z.GetString("currentPath")
 
 	usr := z.GetSession("uesrLogin")
-	if !GetUserManager().CheckPath(usr.(string), curPath){
+	if usr == nil || !GetUserManager().CheckPath(usr.(string), curPath){
 		z.Redirect("／login",302)
 	}
 
